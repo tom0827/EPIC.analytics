@@ -6,10 +6,7 @@ export default defineConfig({
   target: 'es2020',
   outDir: 'dist',
 
-  dts: {
-    resolve: false,
-    compilerOptions: { skipLibCheck: true },
-  },
+  dts: false,
 
   splitting: false,
   sourcemap: true,

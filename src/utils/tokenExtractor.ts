@@ -1,11 +1,8 @@
-import { User } from 'react-oidc-context';
 import { UserInfo } from '../types';
 
-/**
- * Extract user_auth_guid from OIDC user object
- * Uses preferred_username as user_auth_guid
- */
-export function extractUserInfo(user: User | null | undefined): UserInfo | null {
+type UserLike = { profile?: { preferred_username?: string; sub?: string } } | null | undefined;
+
+export function extractUserInfo(user: UserLike): UserInfo | null {
   if (!user || !user.profile) {
     return null;
   }

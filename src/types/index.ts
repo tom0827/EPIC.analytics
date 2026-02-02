@@ -3,7 +3,8 @@ export type EpicAppName =
   | 'condition_repository'
   | 'epic_compliance'
   | 'epic_engage'
-  | 'epic_public';
+  | 'epic_public'
+  | 'epic_track';
 
 export interface EaoAnalyticsOptions {
   appName: EpicAppName;
@@ -11,6 +12,13 @@ export interface EaoAnalyticsOptions {
   enabled?: boolean;
   onSuccess?: () => void;
   onError?: (error: Error) => void;
+  authState?: {
+    user: {
+      access_token?: string;
+      profile?: { preferred_username?: string; sub?: string; identity_provider?: string };
+    };
+    isAuthenticated: boolean;
+  };
 }
 
 export interface UserInfo {
@@ -21,4 +29,3 @@ export interface EaoAnalyticsPayload {
   user_auth_guid: string;
   app_name: EpicAppName;
 }
-
